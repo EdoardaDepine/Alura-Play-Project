@@ -1,4 +1,4 @@
-import getVideoList from "./conexaoApi.js";
+import { getVideoList } from "./conexaoApi.js";
 
 const lista = document.querySelector("[data-lista]");
 
