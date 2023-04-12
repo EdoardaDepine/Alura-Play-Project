@@ -29,7 +29,7 @@ async function createdVideoAPI(titulo, descricao, url, imagem) {
 
 async function searchVideoAPI(nameVideo) {
   const conectionAPI = await fetch(
-    `http://localhost:3000/videos/q=${nameVideo}`
+    `http://localhost:3000/videos/?q=${nameVideo}`
   );
   const conectionAPIconverter = conectionAPI.json();
 

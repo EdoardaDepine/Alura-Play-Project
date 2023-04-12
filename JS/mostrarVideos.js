@@ -1,7 +1,5 @@
 import { getVideoList } from "./conexaoApi.js";
 
-const lista = document.querySelector("[data-lista]");
-
 export default function constroiCard(titulo, descricao, url, imagem) {
   const video = document.createElement("li");
   video.className = "videos__item";
@@ -21,6 +19,7 @@ export default function constroiCard(titulo, descricao, url, imagem) {
 }
 
 async function listaVideos() {
+  const lista = document.querySelector("[data-lista]");
   try {
     const videoListAPI = await getVideoList();
     videoListAPI.forEach((element) =>

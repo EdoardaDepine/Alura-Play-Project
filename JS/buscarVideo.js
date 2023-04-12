@@ -23,6 +23,10 @@ async function searchVideo(event) {
       )
     )
   );
+
+  if (search.length == 0) {
+    list.innerHTML = `<h2 class="mensagem__titulo">Não existem vídeos com esse termo</h2>`;
+  }
 }
 
 const buttonSearch = document.querySelector("[data-botao-pesquisa]");
