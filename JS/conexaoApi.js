@@ -19,6 +19,10 @@ async function createdVideoAPI(titulo, descricao, url, imagem) {
     }),
   });
 
+  if (!conectionAPI.ok) {
+    throw new Error("Não foi possível enviar o vídeo");
+  }
+
   const conectionAPIconverter = conectionAPI.json();
   return conectionAPIconverter;
 }
