@@ -23,7 +23,7 @@ async function createdVideoAPI(titulo, descricao, url, imagem) {
   return conectionAPIconverter;
 }
 
-async function searchVideo(nameVideo) {
+async function searchVideoAPI(nameVideo) {
   const conectionAPI = await fetch(
     `http://localhost:3000/videos/q=${nameVideo}`
   );
@@ -32,4 +32,4 @@ async function searchVideo(nameVideo) {
   return conectionAPIconverter;
 }
 
-export { getVideoList, createdVideoAPI, searchVideo };
+export { getVideoList, createdVideoAPI, searchVideoAPI };

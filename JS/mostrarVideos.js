@@ -2,7 +2,7 @@ import { getVideoList } from "./conexaoApi.js";
 
 const lista = document.querySelector("[data-lista]");
 
-function constroiCard(titulo, descricao, url, imagem) {
+export default function constroiCard(titulo, descricao, url, imagem) {
   const video = document.createElement("li");
   video.className = "videos__item";
   video.innerHTML = `
@@ -21,17 +21,21 @@ function constroiCard(titulo, descricao, url, imagem) {
 }
 
 async function listaVideos() {
-  const videoListAPI = await getVideoList();
-  videoListAPI.forEach((element) =>
-    lista.appendChild(
-      constroiCard(
-        element.titulo,
-        element.descricao,
-        element.url,
-        element.imagem
+  try {
+    const videoListAPI = await getVideoList();
+    videoListAPI.forEach((element) =>
+      lista.appendChild(
+        constroiCard(
+          element.titulo,
+          element.descricao,
+          element.url,
+          element.imagem
+        )
       )
-    )
-  );
+    );
+  } catch {
+    lista.innerHTML = `<h2 class="mensagem__titulo">Não foi possível carregar a lista de vídeos</h2>`;
+  }
 }
 
 listaVideos();
